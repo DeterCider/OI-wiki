@@ -6,7 +6,7 @@
 
 ### 插入与删除操作
 
--    `insert(x)` 当容器中没有等价元素的时候，将元素 x 插入到 `set` 中。
+-    `insert(x)` 当容器中没有等价元素的时候，将元素 x 插入到 `set` 中，使用时会返回一个二元组<iterator, bool>,详见下面的map的insert
 -    `erase(x)` 删除值为 x 的元素，返回删除元素的个数。
 -    `erase(pos)` 删除迭代器为 pos 的元素，要求迭代器必须合法。
 -    `erase(first,last)` 删除迭代器在 $[first,last)$ 范围内的所有元素。
@@ -81,6 +81,7 @@ map<string, int> mp;
 
 1.  直接赋值，例如 `mp["Tom"]=0` 
 2.  通过插入一个类型为 `pair<Key, T>` 的值，例如 `mp.insert(pair<string,int>("Alan",100));` 
+    (注：使用insert时会返回一个二元组<iterator, bool>的值, 其中迭代器指向新插入元素的位置，bool是判断是否插入成功，如果map内已有等效元素则会返回false，如果插入成功则返回true)
 3.  使用 `initializer_list` ：
 
 ```cpp
