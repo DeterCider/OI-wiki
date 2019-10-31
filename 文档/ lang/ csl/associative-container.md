@@ -79,9 +79,13 @@ map<string, int> mp;
 
 ### 添加元素
 
-1.  直接赋值，例如 `mp["Tom"]=0` 
-2.  通过插入一个类型为 `pair<Key, T>` 的值，例如 `mp.insert(pair<string,int>("Alan",100));` 
-3.  使用 `initializer_list` ：
+1. 直接赋值，例如 `mp["Tom"]=0` 
+
+2. 通过插入一个类型为 `pair<Key, T>` 的值，例如 `mp.insert(pair<string,int>("Alan",100));` 
+
+   （注：使用 insert 函数实际上还会返回一个类型为 `pair<iterator, bool>`的值，其中iterator是一个新元素的迭代器，而bool则是判断元素是否插入成功，由于 `map`中的元素具有唯一性质，所以如果再 `map`中若已有等效元素，则视为插入失败，返回false，反之则返回true， `set`中的 insert 也是如此 ）
+
+3. 使用 `initializer_list` ：
 
 ```cpp
 map<string, int> mp = {{"Tom", 0}, {"Bob", "100"}, {"Alan", 100}};
